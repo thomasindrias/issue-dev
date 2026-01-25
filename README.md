@@ -15,8 +15,14 @@ Start working on an issue, add progress updates, and mark it done—all without 
 
 ## Installation
 
+First, add the marketplace:
 ```bash
-claude plugin install thomasindrias/issue-dev
+claude plugin marketplace add thomasindrias/issue-dev
+```
+
+Then install the plugin:
+```bash
+claude plugin install issue-dev@issue-dev
 ```
 
 ## Requirements
@@ -106,15 +112,20 @@ Completed issue: CIR-123 (Linear). No active issue.
 
 ```
 issue-dev/
-├── commands/
-│   ├── issue-work.md      # Start working on an issue
-│   ├── issue-update.md    # Add progress updates
-│   └── issue-done.md      # Complete work on an issue
-├── skills/
-│   ├── issue-workflow/    # Workflow management guidance
-│   └── provider-detection/# Provider detection logic
-└── agents/
-    └── issue-dev.md       # Autonomous issue management agent
+├── .claude-plugin/
+│   ├── plugin.json        # Plugin manifest
+│   ├── marketplace.json   # Marketplace manifest
+│   ├── commands/
+│   │   ├── issue-work.md      # Start working on an issue
+│   │   ├── issue-update.md    # Add progress updates
+│   │   └── issue-done.md      # Complete work on an issue
+│   ├── skills/
+│   │   ├── issue-workflow/    # Workflow management guidance
+│   │   └── provider-detection/# Provider detection logic
+│   └── agents/
+│       └── issue-dev.md       # Autonomous issue management agent
+├── LICENSE
+└── README.md
 ```
 
 ## Supported Providers

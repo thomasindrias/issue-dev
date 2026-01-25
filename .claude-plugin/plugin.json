@@ -8,5 +8,17 @@
   "repository": "https://github.com/thomasindrias/issue-dev",
   "homepage": "https://github.com/thomasindrias/issue-dev",
   "license": "MIT",
-  "keywords": ["issue-tracking", "linear", "jira", "workflow", "project-management"]
+  "keywords": ["issue-tracking", "linear", "jira", "workflow", "project-management"],
+  "commands": [
+    "./commands/issue-work.md",
+    "./commands/issue-update.md",
+    "./commands/issue-done.md"
+  ],
+  "skills": [
+    "./skills/issue-workflow",
+    "./skills/provider-detection"
+  ],
+  "agents": [
+    "./agents/issue-dev.md"
+  ]
 }
