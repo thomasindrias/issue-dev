@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Manages issue/ticket states across project management providers (Linear, JIRA, etc.) during development work",
-    "version": "1.0.0"
+    "version": "2.0.1"
   },
   "plugins": [
     {
