@@ -2,6 +2,8 @@
 
 Manage issue/ticket states across Linear, JIRA, and other project management providers directly from Claude Code.
 
+<img width="1500" height="612" alt="image" src="https://github.com/user-attachments/assets/1f1335d9-4fc1-4575-ad48-d38b34b2020a" />
+
 ## How It Works
 
 Start working on an issue, add progress updates, and mark it done—all without leaving your terminal. The plugin automatically detects your provider from URLs or issue IDs and handles state transitions through MCP integrations.
