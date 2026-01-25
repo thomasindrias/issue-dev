@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Local development
+*.local.md
+.local/
+
+# Internal planning docs
+docs/plans/
