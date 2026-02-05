@@ -1,5 +1,4 @@
 ---
-name: issue-plan
 description: Generate implementation workflow from any issue tracker URL
 argument-hint: <issue-url-or-id>
 allowed-tools:
