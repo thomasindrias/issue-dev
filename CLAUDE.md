@@ -21,6 +21,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Design Pattern**: Provider-agnostic adapter with graceful degradation. Detection layer parses issue references → capability check verifies MCP availability → workflow layer executes state transitions → context tracking maintains active issue.
 
+**Skill Dependencies:**
+- All commands depend on `provider-detection` skill for URL/ID parsing
+- All commands depend on `issue-workflow` skill for state transition logic
+
 ## Plugin Components
 
 ### Commands (`.claude-plugin/commands/`)
