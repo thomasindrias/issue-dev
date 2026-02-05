@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Developer workflow plugins for issue tracking and Issue First Development methodology.",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "category": "developer-tools"
   },
   "plugins": [
@@ -14,7 +14,14 @@
       "description": "Manage issue/ticket states across Linear, JIRA, and other project management providers. Includes IFD (Issue First Development) for generating structured implementation workflows from issue tracker URLs.",
       "source": "./.claude-plugin",
       "strict": false,
-      "tags": ["linear", "jira", "issue-tracking", "workflow", "ifd", "planning"]
+      "tags": [
+        "linear",
+        "jira",
+        "issue-tracking",
+        "workflow",
+        "ifd",
+        "planning"
+      ]
     }
   ]
 }
