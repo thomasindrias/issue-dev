@@ -6,7 +6,22 @@ Manage issue/ticket states across Linear, JIRA, and other project management pro
 
 ## How It Works
 
-Start working on an issue, add progress updates, and mark it done—all without leaving your terminal. The plugin automatically detects your provider from URLs or issue IDs and handles state transitions through MCP integrations.
+Manage your issues directly from the terminal. The plugin automatically detects your provider from URLs or issue IDs and handles state transitions through MCP integrations.
+
+## Two Workflows
+
+| Aspect | Quick Workflow | Guided Workflow |
+|--------|----------------|-----------------|
+| **Commands** | `/issue-work` → `/issue-update` → `/issue-done` | `/issue-plan` |
+| **Use when** | You know what to do | You need help planning |
+| **What it does** | Tracks issue status as you work | Generates complete implementation plan |
+| **Planning** | None - just status tracking | Three-pass planning with validation |
+| **Quality gates** | None | Typecheck, lint, build, code review |
+| **Dependencies** | MCP only | MCP + `superpowers` plugin |
+
+### Quick Workflow
+
+For when you already know what to implement:
 
 ```
 /issue-work CIR-123           # Fetch issue, move to In Progress
@@ -14,6 +29,16 @@ Start working on an issue, add progress updates, and mark it done—all without 
 /issue-update Fixed auth bug  # Add progress comment
 /issue-done PR merged         # Move to Done, add completion note
 ```
+
+### Guided Workflow
+
+For when you need a structured implementation plan:
+
+```
+/issue-plan CIR-123           # Generates full implementation workflow
+```
+
+The guided workflow analyzes your issue, explores the codebase, and produces a validated implementation plan with quality gates—before you write any code.
 
 ## Installation
 
@@ -54,9 +79,11 @@ Configure the Atlassian JIRA MCP server in your `.mcp.json`:
 
 ## Commands
 
-### `/issue-plan [issue-url-or-id]`
+### Issue First Development
 
-Start an Issue First Development workflow. Fetches issue details, transitions to "In Progress", and generates a comprehensive implementation plan with three-pass planning and quality gates.
+#### `/issue-plan [issue-url-or-id]`
+
+Generate a complete implementation workflow from an issue. Analyzes requirements, explores your codebase, and produces a validated plan—before you write any code.
 
 ```
 /issue-plan https://linear.app/myteam/issue/CIR-123/new-feature
@@ -64,12 +91,12 @@ Start an Issue First Development workflow. Fetches issue details, transitions to
 /issue-plan  # Interactive mode - prompts for issue
 ```
 
-**Features:**
-- Multi-tracker support (Linear, JIRA)
-- Automatic task type detection (frontend, backend, full-stack, design)
-- Three-pass planning with code review validation
-- Quality assurance gates (typecheck, lint, build, code review)
-- Development isolation using worktrees
+**What it does:**
+1. Fetches issue details and moves to "In Progress"
+2. Analyzes task type (frontend, backend, full-stack, design)
+3. Runs three-pass planning with code review validation
+4. Creates development isolation using worktrees
+5. Applies quality gates (typecheck, lint, build)
 
 **Requires:** `superpowers` plugin for planning and code review capabilities.
 
@@ -77,9 +104,13 @@ Start an Issue First Development workflow. Fetches issue details, transitions to
 claude plugin install superpowers@superpowers
 ```
 
-### `/issue-work <issue-id-or-url>`
+### Issue Tracking
 
-Start working on an issue. Fetches details and moves to "In Progress" state.
+Simple status management—for when you already know what to build.
+
+#### `/issue-work <issue-id-or-url>`
+
+Track that you're working on an issue. Fetches details and updates status to "In Progress".
 
 ```
 /issue-work https://linear.app/myteam/issue/CIR-123/feature-title
@@ -99,9 +130,9 @@ Assignee: Thomas Indrias
 Active issue: CIR-123 (Linear)
 ```
 
-### `/issue-update [comment]`
+#### `/issue-update [comment]`
 
-Add a progress comment or update the current issue.
+Add a progress comment to the current issue.
 
 ```
 /issue-update Fixed the auth token refresh issue, moving on to calendar sync
@@ -113,7 +144,7 @@ Added comment to CIR-123 (Linear):
 > Fixed the auth token refresh issue, moving on to calendar sync
 ```
 
-### `/issue-done [comment]`
+#### `/issue-done [comment]`
 
 Complete work on the current issue. Moves to "Done" state.
 
