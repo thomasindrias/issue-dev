@@ -12,10 +12,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 .claude-plugin/
 ├── plugin.json          # Plugin manifest (name, version, component paths)
 ├── marketplace.json     # Marketplace distribution manifest
-├── commands/            # User-invocable slash commands (/issue-work, /issue-update, /issue-done)
+├── commands/            # User-invocable slash commands (/issue-work, /issue-update, /issue-done, /issue-plan)
 ├── skills/              # Reusable guidance components
 │   ├── issue-workflow/  # State transition logic
-│   └── provider-detection/  # Provider identification from URLs/IDs
+│   ├── provider-detection/  # Provider identification from URLs/IDs
+│   └── workflow/        # IFD workflow philosophy and standards
 └── agents/              # Autonomous issue detection agent
 ```
 
@@ -31,10 +32,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `issue-work.md`: Start working on an issue (fetches details, transitions to In Progress)
 - `issue-update.md`: Add progress comments to active issue
 - `issue-done.md`: Complete work (transitions to Done, clears tracking)
+- `issue-plan.md`: Issue First Development workflow (three-pass planning, quality gates)
 
 ### Skills (`.claude-plugin/skills/`)
 - `issue-workflow/SKILL.md`: Issue state transition guidance
 - `provider-detection/SKILL.md`: URL/ID pattern matching for Linear and JIRA
+- `workflow/SKILL.md`: IFD workflow philosophy, planning protocol, and quality standards
 
 ### Agent (`.claude-plugin/agents/`)
 - `issue-dev.md`: Proactively detects issue references in user messages

@@ -4,17 +4,17 @@
     "name": "Thomas Indrias"
   },
   "metadata": {
-    "description": "Manages issue/ticket states across project management providers (Linear, JIRA, etc.) during development work",
-    "version": "2.0.1",
-    "category": "workflow-automation"
+    "description": "Developer workflow plugins for issue tracking and Issue First Development methodology.",
+    "version": "2.1.0",
+    "category": "developer-tools"
   },
   "plugins": [
     {
       "name": "issue-dev",
-      "description": "Manage issue/ticket states across Linear, JIRA, and other project management providers directly from Claude Code. Start work on issues, add progress updates, and mark them done without leaving your terminal.",
+      "description": "Manage issue/ticket states across Linear, JIRA, and other project management providers. Includes IFD (Issue First Development) for generating structured implementation workflows from issue tracker URLs.",
       "source": "./.claude-plugin",
       "strict": false,
-      "tags": ["linear", "jira", "issue-tracking", "workflow"]
+      "tags": ["linear", "jira", "issue-tracking", "workflow", "ifd", "planning"]
     }
   ]
 }

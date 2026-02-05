@@ -54,6 +54,29 @@ Configure the Atlassian JIRA MCP server in your `.mcp.json`:
 
 ## Commands
 
+### `/issue-plan [issue-url-or-id]`
+
+Start an Issue First Development workflow. Fetches issue details, transitions to "In Progress", and generates a comprehensive implementation plan with three-pass planning and quality gates.
+
+```
+/issue-plan https://linear.app/myteam/issue/CIR-123/new-feature
+/issue-plan PROJ-456
+/issue-plan  # Interactive mode - prompts for issue
+```
+
+**Features:**
+- Multi-tracker support (Linear, JIRA)
+- Automatic task type detection (frontend, backend, full-stack, design)
+- Three-pass planning with code review validation
+- Quality assurance gates (typecheck, lint, build, code review)
+- Development isolation using worktrees
+
+**Requires:** `superpowers` plugin for planning and code review capabilities.
+
+```bash
+claude plugin install superpowers@superpowers
+```
+
 ### `/issue-work <issue-id-or-url>`
 
 Start working on an issue. Fetches details and moves to "In Progress" state.
@@ -120,10 +143,12 @@ issue-dev/
 │   ├── commands/
 │   │   ├── issue-work.md      # Start working on an issue
 │   │   ├── issue-update.md    # Add progress updates
-│   │   └── issue-done.md      # Complete work on an issue
+│   │   ├── issue-done.md      # Complete work on an issue
+│   │   └── issue-plan.md      # Issue First Development workflow
 │   ├── skills/
 │   │   ├── issue-workflow/    # Workflow management guidance
-│   │   └── provider-detection/# Provider detection logic
+│   │   ├── provider-detection/# Provider detection logic
+│   │   └── workflow/          # IFD workflow philosophy & standards
 │   └── agents/
 │       └── issue-dev.md       # Autonomous issue management agent
 ├── LICENSE
